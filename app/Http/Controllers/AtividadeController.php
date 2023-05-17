@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 class AtividadeController extends Controller
 {
     //
+    public function getAtividade($id)
+    {
+        $atividade = Atividade::find($id);
+
+        if (!$atividade) {
+            return response()->json(['error' => 'Atividade not found'], 404);
+        }
+
+        return response()->json($atividade);
+    }
+
     public function store(Request $request)
     {
         // Validate and store the form data

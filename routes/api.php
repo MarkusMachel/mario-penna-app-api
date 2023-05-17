@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+//Route::get('/atividade/{id}', [AtividadeController::class, 'getAtividade']);
+Route::get('/atividade/{id}', 'App\Http\Controllers\AtividadeController@show')->name('atividade.show');
 
 Route::post('/atividade', 'App\Http\Controllers\AtividadeController@store')->name('atividade.store');
 
