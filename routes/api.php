@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::post('/atividade', 'App\Http\Controllers\AtividadeController@store')->name('atividade.store');
+
+
 Route::get('/test', function () {
     return response()->json([
         'message' => 'Hello World!',
