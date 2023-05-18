@@ -9,7 +9,7 @@ class Atividade extends Model
 {
     protected $fillable = [
         'Descricao',
-        'Tipo de Atividade',
+        'Tipo_de_Atividade',
         'Multiplicador',
     ];
 }
