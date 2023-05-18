@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/atividade', 'App\Http\Controllers\AtividadeController@store')->name('atividade.store');
+//criar uma rota para buscar uma atividade por matching de palavra
+//Route::get...
+
+Route::get('/atividade/{id}', 'App\Http\Controllers\AtividadeController@buscarAtividade')->name('atividade.buscarAtividade');
+
+Route::post('/atividade', 'App\Http\Controllers\AtividadeController@salvarAtividade')->name('atividade.salvarAtividade');
 
 
 Route::get('/test', function () {
