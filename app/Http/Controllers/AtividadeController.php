@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AtividadeController extends Controller
 {
     //
-    public function getAtividade($id)
+    public function buscarAtividade($id)
     {
         $atividade = Atividade::find($id);
 
@@ -19,13 +19,13 @@ class AtividadeController extends Controller
         return response()->json($atividade);
     }
 
-    public function store(Request $request)
+    public function salvarAtividade(Request $request)
     {
         // Validate and store the form data
         $validatedData = $request->validate([
-            'field1' => 'required',
-            'field2' => 'required',
-            'field3' => 'required',
+            'Descricao' => 'required',
+            'Tipo_de_Atividade' => 'required',
+            'Multiplicador' => 'required',
         ]);
 
         Atividade::create($validatedData);
