@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AtividadeController;
+use App\Http\Controllers\GerenciarPontuacaoController;
 use App\Http\Controllers\ProgramaResidenciaMedicaController;
 use App\Http\Controllers\ResidenteController;
 use Illuminate\Http\Request;
@@ -25,6 +26,11 @@ Route::get('/programas-residencia-medica', [ProgramaResidenciaMedicaController::
 Route::put('/programas-residencia-medica/{id}', [ProgramaResidenciaMedicaController::class, 'atualizarPrm'])->name('programas-residencia-medica.atualizarPrm');
 Route::delete('/programas-residencia-medica/{id}', [ProgramaResidenciaMedicaController::class, 'excluirPrm'])->name('programas-residencia-medica.excluirPrm');
 
+Route::post('/gerenciar-pontuacao', [GerenciarPontuacaoController::class, 'salvarPontuacao'])->name('gerenciar-pontuacao.salvarPontuacao');
+Route::get('/gerenciar-pontuacao/{id}', [GerenciarPontuacaoController::class, 'buscarPontuacao'])->name('gerenciar-pontuacao.buscarPontuacao');
+Route::get('/gerenciar-pontuacao', [GerenciarPontuacaoController::class, 'buscarTodosPontuacoes'])->name('gerenciar-pontuacao.buscarTodosPontuacoes');
+Route::put('/gerenciar-pontuacao/{id}', [GerenciarPontuacaoController::class, 'atualizarPontuacao'])->name('gerenciar-pontuacao.atualizarPontuacao');
+Route::delete('/gerenciar-pontuacao/{id}', [GerenciarPontuacaoController::class, 'excluirPontuacao'])->name('gerenciar-pontuacao.excluirPontuacao');
 
 
 Route::get('/test', function () {
