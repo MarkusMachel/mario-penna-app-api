@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Atividade extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'Descricao',
         'Tipo_de_Atividade',
