@@ -1,26 +1,21 @@
 <?php
 
+use App\Http\Controllers\AtividadeController;
+use App\Http\Controllers\ResidenteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
 //criar uma rota para buscar uma atividade por matching de palavra
 //Route::get...
 
-Route::get('/atividade/{id}', 'App\Http\Controllers\AtividadeController@buscarAtividade')->name('atividade.buscarAtividade');
+Route::get('/atividade/{id}', [AtividadeController::class, 'buscarAtividade'])->name('atividade.buscarAtividade');
+Route::post('/atividade', [AtividadeController::class, 'salvarAtividade'])->name('atividade.salvarAtividade');
 
-Route::post('/atividade', 'App\Http\Controllers\AtividadeController@salvarAtividade')->name('atividade.salvarAtividade');
 
+Route::get('/residentes/{id}', [ResidenteController::class, 'buscarResidente'])->name('residentes.buscarResidente');
+Route::get('/residentes', [ResidenteController::class, 'buscarTodos'])->name('residentes.buscarTodos');
+Route::post('/residentes', [ResidenteController::class, 'salvarResidente'])->name('residentes.salvarResidente');
+Route::put('/residentes/{id}', [ResidenteController::class, 'atualizarResidente'])->name('residentes.atualizarResidente');
 
 Route::get('/test', function () {
     return response()->json([
