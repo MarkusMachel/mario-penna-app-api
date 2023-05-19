@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AtividadeController;
+use App\Http\Controllers\ProgramaResidenciaMedicaController;
 use App\Http\Controllers\ResidenteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,15 @@ Route::get('/residentes/{id}', [ResidenteController::class, 'buscarResidente'])-
 Route::get('/residentes', [ResidenteController::class, 'buscarTodos'])->name('residentes.buscarTodos');
 Route::post('/residentes', [ResidenteController::class, 'salvarResidente'])->name('residentes.salvarResidente');
 Route::put('/residentes/{id}', [ResidenteController::class, 'atualizarResidente'])->name('residentes.atualizarResidente');
+
+
+Route::post('/programas-residencia-medica', [ProgramaResidenciaMedicaController::class, 'salvarPrm'])->name('programas-residencia-medica.salvarPrm');
+Route::get('/programas-residencia-medica/{id}', [ProgramaResidenciaMedicaController::class, 'buscarPrm'])->name('programas-residencia-medica.buscarPrm');
+Route::get('/programas-residencia-medica', [ProgramaResidenciaMedicaController::class, 'buscarTodosPrm'])->name('programas-residencia-medica.buscarTodosPrm');
+Route::put('/programas-residencia-medica/{id}', [ProgramaResidenciaMedicaController::class, 'atualizarPrm'])->name('programas-residencia-medica.atualizarPrm');
+Route::delete('/programas-residencia-medica/{id}', [ProgramaResidenciaMedicaController::class, 'excluirPrm'])->name('programas-residencia-medica.excluirPrm');
+
+
 
 Route::get('/test', function () {
     return response()->json([
