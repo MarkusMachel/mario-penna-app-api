@@ -35,7 +35,27 @@ class ResidenteController extends Controller
 
     public function buscarTodos()
     {
-        $residentes = Residente::all();
+        //$residentes = Residente::all();
+        $residentes = [
+            [
+                'Nome' => 'John Doe',
+                'Matricula' => '123456',
+                'Programa_de_Residencia_Medica' => 'Internal Medicine',
+                'Observacao' => 'Lorem ipsum dolor sit amet.',
+            ],
+            [
+                'Nome' => 'Jane Smith',
+                'Matricula' => '987654',
+                'Programa_de_Residencia_Medica' => 'Pediatrics',
+                'Observacao' => 'Lorem ipsum dolor sit amet consectetur.',
+            ],
+            [
+                'Nome' => 'Bob Johnson',
+                'Matricula' => '123987',
+                'Programa_de_Residencia_Medica' => 'Surgery',
+                'Observacao' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+            ],
+        ];
 
         // Additional logic or response
 
