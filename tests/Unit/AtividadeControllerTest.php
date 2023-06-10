@@ -20,16 +20,18 @@ class AtividadeControllerTest extends TestCase
         $atividade = Atividade::factory()->create();
 
         // Send a GET request to the route with the atividade ID
-        $response = $this->get(route('atividade.buscarAtividade', ['id' => $atividade->id]));
+        $atividade = Atividade::factory()->create();
+
+        $response = $this->get(route('atividade.buscarAtividade', ['id' => $atividade->first()->id]));
 
         // Assert that the response has a successful status code
         $response->assertStatus(200);
 
         // Assert that the response JSON contains the atividade data
         $response->assertJson([
-            'id' => $atividade->id,
-            'Descricao' => $atividade->Descricao,
-            'Tipo_de_Atividade' => $atividade->Tipo_de_Atividade,
+            'id' => $atividade->first()->id,
+            'Descricao' => $atividade->first()->Descricao,
+            'Tipo_de_Atividade' => $atividade->first()->Tipo_de_Atividade,
             // Add more assertions for other attributes as needed
         ]);
     }
